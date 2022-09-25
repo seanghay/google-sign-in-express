@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Tracker</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+
+<body>
+  <div class="container">
+    <article>
+      <h1>Coffee Tracker</h1>
+      {{#if auth}}
+        <h3>Hello, {{ auth.name }}</h3>
+        <p>Your email: <code>{{ auth.email }}</code></p>
+        <form action="/sign-out" method="post">
+          <input type="submit" value="Sign out">
+        </form>
+      {{else}}
+
+        <div class="auth">
+        <div id="g_id_onload" data-client_id="102154128748-oes5783do8ul9ap0q8i413r8p7rts2mr.apps.googleusercontent.com"
+          data-context="signin" data-ux_mode="popup" data-login_uri="{{callbackUrl}}" data-nonce=""
+          data-auto_select="true" data-itp_support="true">
+        </div>
+
+        <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="continue_with"
+          data-size="large" data-logo_alignment="left">
+        </div>
+      </div>
+      
+      {{/if}}
+
+    </article>
+
+  </div>
+
+
+</body>
+
+</html>
